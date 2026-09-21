@@ -64,3 +64,12 @@ above(circle(30, 'solid', 'blue'),
 
 #below
 
+#make a stop sign
+
+octagon = regular-polygon(60, 8, 'solid', 'red')
+
+stop-text = text("STOP", 50, 'white')
+
+stop-sign = overlay(stop-text, octagon)
+
+stop-sign
