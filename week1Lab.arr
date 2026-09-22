@@ -24,14 +24,19 @@ perimeter * 0.10
 'red + blue'
 
 #Make a traffic light
-rectangle(40, 100, 'solid', 'black')
+traffic-body = rectangle(40, 80, 'solid', 'black')
 red = circle(10, 'solid', 'red')
 yellow = circle(10, 'solid', 'yellow')
 green = circle(10, 'solid', 'green')
 
 lights = above(red, above(yellow, green))
+traffic-lights = overlay-xy(lights, -10, -10, traffic-body)
 
-overlay(lights, rectangle(40, 100, 'solid', 'black'))
+
+#create the pole
+pole = rectangle(5, 20, 'solid', 'grey')
+finished-lights = above(traffic-lights, pole)
+finished-lights
 
 #Broken Code Hunt
 # Goal: A rectangle with width 50 and height 20, solid black
@@ -39,11 +44,21 @@ rectangle(50, 20, 'solid', "black")
 circle(30, 'solid', "red")
 
 #Create a Flag
-r = rectangle(160, 100, 'solid', 'white')
 
-s = rotate(45, square(60, 'solid', 'blue'))
 
-overlay(s, r)
+shield = rotate(45, square(65, 'solid', 'blue'))
 
-overlay(rectangle(30, 30, 'solid', 'grey'),
-  overlay(square(50, 'solid', 'brown'), rectangle(160, 100, 'solid', 'black')))
+star-center = star(40, 'solid', 'silver')
+
+emblem = overlay(star-center, shield) 
+
+bg = rectangle(160, 100, 'solid', 'white')
+
+final-design = overlay(emblem, bg)
+
+final-design
+
+overlay(text('GO!', 20, 'black'), final-design)
+
+
+
